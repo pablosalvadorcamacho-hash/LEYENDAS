@@ -4,8 +4,263 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LEYENDAS</title>
+
 </head>
+
+
 <body>
+    <div class="loader" role="status" aria-label="Cargando archivo legendario">
+      <div class="loader__track">
+        <span class="pokeball pokeball--loader" aria-hidden="true"></span>
+      </div>
+      <p>Intentando capturar...</p>
+      <small>Preparando el archivo legendario</small>
+    </div>
     
+    <header>
+
+        <a href="index.html" class="logo">
+            <img src="" alt="pokemonlogo"> 
+        </a>
+
+        <nav class="home-nav">
+            <ul class="menu">
+
+                <li>
+                    <a href="index.html">INICIO</a>
+                </li>
+
+                <li>
+                    <a href="">EL ORIGEN</a>
+                </li>
+
+                <li>
+                    <a href="">LEYENDAS</a>
+                </li>
+
+                <li>
+                    <a href="">CARTAS</a>
+                </li>
+
+                <li>
+                    <a href="">ARCHIVO</a>
+                </li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="home-main">
+
+        <!-- PORTADA -->
+         <section class="home-portada">
+
+            <div class="hero__copy" data-aos="fade-right">
+                <h1 id="hero-title">LEYENDAS</h1>
+                <p class="hero__intro">
+                Esta web reúne a los legendarios con los que crecimos: los de las primeras generaciones,
+                las series y las películas que más recordamos.
+                </p>
+                <a class="pill-button" href="#origen">Comenzar el viaje <span>↓</span></a>
+            </div>
+
+        </section>
+
+        <!-- ORIGEN -->
+
+        <section class="origen">
+
+            <div class="selection-note__content">
+                <p class="selection-note__lead" data-aos="fade-up">
+                A día de hoy hay muchísimos Pokémon legendarios. No queríamos hacer una lista completa,
+                sino quedarnos con los que más nos han marcado y con los que creemos que mejor
+                representan la idea de “legendario”.
+                </p>
+
+                <div class="selection-reasons">
+                    <article data-aos="fade-up">
+                        <span>01</span>
+                        <h3>Son los que vimos crecer</h3>
+                        <p>
+                        Aparecían en la serie, en las películas y en los juegos que conocimos primero. Por
+                        eso siguen siendo los más fáciles de reconocer.
+                        </p>
+                    </article>
+                    <article data-aos="fade-up" data-aos-delay="100">
+                        <span>02</span>
+                        <h3>Llegaron antes</h3>
+                        <p>
+                            La mayoría pertenece a las primeras generaciones. Fueron los que definieron cómo
+                            debía sentirse un Pokémon realmente especial.
+                        </p>
+                    </article>
+                    <article data-aos="fade-up" data-aos-delay="200">
+                        <span>03</span>
+                        <h3>Tienen una historia propia</h3>
+                        <p>
+                            No destacan solo por ser fuertes. Cada uno tiene un origen, un conflicto o una
+                            relación con otros Pokémon que merece ser contada.
+                        </p>
+                    </article>
+                </div>
+            </div>
+            
+        </section>
+
+        <!-- LEYENDAS -->
+
+        <section class="leyendas">
+
+            <div class="group-list">
+                
+                <article class="legend-row" data-aos="fade-up">
+                    <div class="holo-card holo-card--violet" data-card="creation" tabindex="0">
+                        <div class="holo-card__top"><span>01</span><span>ARCHIVO LEGENDARIO</span></div>
+                        <div class="holo-card__art">
+                            <span class="pokemon-layer">
+                                <img src="media/img/483.png" alt="Dialga" />
+                                <img class="is-shiny" src="media/img/483-shiny.png" alt="Dialga shiny" />
+                            </span>
+                            <span class="pokemon-layer">
+                                <img src="media/img/484.png" alt="Palkia" />
+                                <img class="is-shiny" src="media/img/484-shiny.png" alt="Palkia shiny" />
+                            </span>
+                        </div>
+                        <div class="holo-card__names"><b>DIALGA</b><b>PALKIA</b></div>
+                        <span class="holo-card__shine" aria-hidden="true"></span>
+                        <button class="shiny-toggle" type="button" aria-pressed="false">Ver shiny</button>
+                        <button class="detail-button" type="button">Ver detalles</button>
+                    </div>
+                    <div class="legend-row__copy">
+                        <p class="importance-rank">IMPORTANCIA 02</p>
+                        <p class="micro-label">TIEMPO Y ESPACIO</p>
+                        <h3>El dúo creador</h3>
+                        <p>
+                            Dialga gobierna el tiempo y Palkia domina el espacio. Juntos explican las
+                            dimensiones sobre las que Arceus construyó el universo.
+                        </p>
+                        <ul class="name-pills">
+                            <li>Dialga</li>
+                            <li>Palkia</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="legend-row legend-row--reverse" data-aos="fade-up">
+                    <div class="holo-card holo-card--rose" data-card="origins" tabindex="0">
+                        <div class="holo-card__top"><span>02</span><span>ARCHIVO LEGENDARIO</span></div>
+                        <div class="holo-card__art">
+                            <span class="pokemon-layer">
+                                <img src="media/img/151.png" alt="Mew" />
+                                <img class="is-shiny" src="media/img/151-shiny.png" alt="Mew shiny" />
+                            </span>
+                            <span class="pokemon-layer">
+                                <img src="media/img/150.png" alt="Mewtwo" />
+                                <img class="is-shiny" src="media/img/150-shiny.png" alt="Mewtwo shiny" />
+                            </span>
+                        </div>
+                        <div class="holo-card__names"><b>MEW</b><b>MEWTWO</b></div>
+                        <span class="holo-card__shine" aria-hidden="true"></span>
+                        <button class="shiny-toggle" type="button" aria-pressed="false">Ver shiny</button>
+                        <button class="detail-button" type="button">Ver detalles</button>
+                    </div>
+                    <div class="legend-row__copy">
+                        <p class="importance-rank">IMPORTANCIA 03</p>
+                        <p class="micro-label">ORIGEN Y CREACIÓN HUMANA</p>
+                        <h3>Mew y Mewtwo</h3>
+                        <p>
+                            Mew contiene el código genético de todos los Pokémon. Mewtwo nace al intentar
+                            reproducir ese poder: naturaleza y ciencia frente a frente.
+                        </p>
+                        <ul class="name-pills">
+                            <li>Mew</li>
+                            <li>Mewtwo</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+
+        </section>
+
+        <!-- CARTAS -->
+
+        <section class="cartas">
+
+            <div class="cartas-carrusel">
+                
+            </div>
+
+        </section>
+
+        <!-- ARCHIVO -->
+
+        <section class="archivo">
+            <p class="section-label" data-aos="fade-up">FIN DEL ARCHIVO · POR AHORA</p>
+            <h2 id="closing-title" data-aos="fade-up">Cada leyenda empieza<br />con una historia.</h2>
+            <p data-aos="fade-up">
+                No queríamos hacer un ranking definitivo. Esta es nuestra forma de reunir a los
+                legendarios que más recordamos y explicar por qué siguen siendo especiales.
+            </p>
+            <p class="closing__note" data-aos="fade-up">
+                La web es meramente informativa y está planteada desde un punto de vista subjetivo: tanto
+                la selección como el orden y los comentarios reflejan nuestra opinión personal sobre estos
+                Pokémon.
+            </p>
+            <a class="pill-button" href="#inicio">Volver al origen <span>↑</span></a>
+            <img src="media/img/493.png" alt="" aria-hidden="true" />
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="home-footer">
+
+        <div class="home-footer-contenido">
+
+        </div>
+
+        <div class="home-footer-creditos">
+
+            <div>
+                <p>© 2027 LEYENDAS POKEMON</p>
+
+                <div class="home-footer-redes">
+
+                    <a href="https://www.instagram.com/"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram">
+                        <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://x.com/"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="X">
+                        <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://www.tiktok.com/"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="TikTok">
+                        <i class="fa-brands fa-tiktok" aria-hidden="true"></i>
+                    </a>
+
+                    <a href="https://www.facebook.com/"
+                        target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook">
+                        <i class="fa-brands fa-facebook-f" aria-hidden="true"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <p>Creado y Diseñado por Pablo y Mario</p>
+
+        </div>
+
+    </footer>
+
 </body>
 </html>
