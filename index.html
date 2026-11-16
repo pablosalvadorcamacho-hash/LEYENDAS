@@ -4,10 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LEYENDAS</title>
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/mario.css">
-    <link rel="stylesheet" href="css/pablo.css">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 
@@ -20,14 +19,18 @@
     <header>
 
         <a href="index.html" class="logo">
-            <img src="" alt="pokemonlogo"> 
+            <img src="#inicio" alt="pokemonlogo"> 
         </a>
 
         <nav class="home-nav">
-            <ul class="menu">
+
+            <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu-principal"> Menú
+            </button>
+
+            <ul class="menu" id="menu-principal">
 
                 <li>
-                    <a href="index.html">INICIO</a>
+                    <a href="#inicio">INICIO</a>
                 </li>
 
                 <li>
@@ -35,15 +38,15 @@
                 </li>
 
                 <li>
-                    <a href="">LEYENDAS</a>
+                    <a href="#leyendas">LEYENDAS</a>
                 </li>
 
                 <li>
-                    <a href="">CARTAS</a>
+                    <a href="#cartas">CARTAS</a>
                 </li>
 
                 <li>
-                    <a href="">ARCHIVO</a>
+                    <a href="#archivo">ARCHIVO</a>
                 </li>
 
             </ul>
@@ -54,7 +57,7 @@
     <main class="home-main">
 
         <!-- PORTADA -->
-         <section class="home-portada">
+         <section class="home-portada" id="inicio">
 
             <div class="titulo" data-aos="fade-right">
                 <img src="media/img/leyendaslogo.png" alt="Leyendas Pokémon">
@@ -69,9 +72,9 @@
 
         <!-- ORIGEN -->
 
-        <section class="origen">
+        <section class="origen" id="origen">
 
-            <div class="origen-contenido" id="origen">
+            <div class="origen-contenido">
                 <h2>EL ORIGEN</h2>
                 <p class="origen-texto" data-aos="fade-up">
                 A día de hoy hay muchísimos Pokémon legendarios. No queríamos hacer una lista completa,
@@ -111,7 +114,7 @@
 
         <!-- LEYENDAS -->
 
-        <section class="leyendas">
+        <section class="leyendas" id="leyendas">
 
             <div class="group-list">
                 
@@ -130,7 +133,6 @@
                         </div>
                         <div class="holo-card__names"><b>DIALGA</b><b>PALKIA</b></div>
                         <span class="holo-card__shine" aria-hidden="true"></span>
-                        <button class="shiny-toggle" type="button" aria-pressed="false">Ver shiny</button>
                         <button class="detail-button" type="button">Ver detalles</button>
                     </div>
                     <div class="legend-row__copy">
@@ -163,7 +165,6 @@
                         </div>
                         <div class="holo-card__names"><b>MEW</b><b>MEWTWO</b></div>
                         <span class="holo-card__shine" aria-hidden="true"></span>
-                        <button class="shiny-toggle" type="button" aria-pressed="false">Ver shiny</button>
                         <button class="detail-button" type="button">Ver detalles</button>
                     </div>
                     <div class="legend-row__copy">
@@ -187,7 +188,7 @@
 
         <!-- CARTAS -->
 
-        <section class="cartas">
+        <section class="cartas" id="cartas">
 
             <div class="cartas-carrusel">
                 
@@ -214,6 +215,9 @@
 
         </section>
 
+        <section class="archivo" id="archivo">
+
+        </section>
     </main>
 
     <!-- FOOTER -->
@@ -262,9 +266,8 @@
         </div>
 
     </footer>
-
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
     <script src="js/script.js"></script>
-    <script src="js/mario.js"></script>
-    <script src="js/pablo.js"></script>
 </body>
 </html>
