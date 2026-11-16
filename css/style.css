@@ -1,0 +1,95 @@
+:root {
+    --bg-dark: #07090e;
+    --bg-darker: #01040b;
+    --bg-card: #111520;
+    --bg-glass: rgba(17, 21, 32, 0.78);
+    
+    --text-main: #f3f5f9;
+    --text-muted: #949eb1;
+    
+    --accent-gold: #f5c542;
+    --accent-violet: #7c4dff;
+    --accent-rose: #ff4d8d;
+    
+    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --max-width: 1400px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-sans);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==========================================================================
+   HEADER Y NAVBAR
+   ========================================================================== */
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem 5%;
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+}
+
+.logo img {
+    height: 40px;
+    width: auto;
+}
+
+.home-nav .menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.home-nav .menu a {
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+}
+
+.home-nav .menu a:hover {
+    color: var(--accent-gold);
+}
+
+
+/* ==========================================================================
+   PORTADA
+   ========================================================================== */
+
+   .home-portada {
+    display: flex;
+    background: var(--bg-darker);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 2rem;
+    font-family: var(--font-sans);
+   }
+
+   .titulo img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 1rem;
+   }
