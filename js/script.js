@@ -57,7 +57,7 @@ $(document).ready(function () {
 
     AOS.init({
         duration: 650,
-        once: true,
+        once: false,
         offset: 80
     });
 
