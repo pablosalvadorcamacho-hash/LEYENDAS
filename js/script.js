@@ -374,4 +374,368 @@ $(document).ready(function () {
 
     });
     
+
+
+    // ===== MODAL DE LEYENDAS =====
+
+    // Cada grupo utiliza exactamente su nombre de data-card.
+    // Cada Pokémon tiene sus propios datos.
+
+    var gruposLeyendas = {
+
+        Arceus: {
+            color: "#f5c542",
+            region: "Sinnoh",
+            pokemon: [
+                {
+                    nombre: "Arceus",
+                    tipos: ["Normal"],
+                    debilidades: "Lucha",
+                    eficacia: "Ninguno"
+                }
+            ]
+        },
+
+        PalkiaDialga: {
+            color: "#b58aff",
+            region: "Sinnoh",
+            pokemon: [
+                {
+                    nombre: "Dialga",
+                    tipos: ["Acero", "Dragón"],
+                    debilidades: "Lucha · Tierra",
+                    eficacia: "Hielo · Roca · Hada · Dragón"
+                },
+                {
+                    nombre: "Palkia",
+                    tipos: ["Agua", "Dragón"],
+                    debilidades: "Dragón · Hada",
+                    eficacia: "Fuego · Tierra · Roca · Dragón"
+                }
+            ]
+        },
+
+        MewMewto: {
+            color: "#ff85b5",
+            region: "Kanto",
+            pokemon: [
+                {
+                    nombre: "Mew",
+                    tipos: ["Psíquico"],
+                    debilidades: "Bicho · Fantasma · Siniestro",
+                    eficacia: "Lucha · Veneno"
+                },
+                {
+                    nombre: "Mewtwo",
+                    tipos: ["Psíquico"],
+                    debilidades: "Bicho · Fantasma · Siniestro",
+                    eficacia: "Lucha · Veneno"
+                }
+            ]
+        },
+
+        ReshiramZekrom: {
+            color: "#ded6ba",
+            region: "Teselia",
+            pokemon: [
+                {
+                    nombre: "Reshiram",
+                    tipos: ["Dragón", "Fuego"],
+                    debilidades: "Tierra · Roca · Dragón",
+                    eficacia: "Dragón · Planta · Hielo · Bicho · Acero"
+                },
+                {
+                    nombre: "Zekrom",
+                    tipos: ["Dragón", "Eléctrico"],
+                    debilidades: "Tierra · Hielo · Dragón · Hada",
+                    eficacia: "Dragón · Agua · Volador"
+                }
+            ]
+        },
+
+        RES: {
+            color: "#e7bc62",
+            region: "Johto",
+            pokemon: [
+                {
+                    nombre: "Raikou",
+                    tipos: ["Eléctrico"],
+                    debilidades: "Tierra",
+                    eficacia: "Agua · Volador"
+                },
+                {
+                    nombre: "Entei",
+                    tipos: ["Fuego"],
+                    debilidades: "Agua · Tierra · Roca",
+                    eficacia: "Planta · Hielo · Bicho · Acero"
+                },
+                {
+                    nombre: "Suicune",
+                    tipos: ["Agua"],
+                    debilidades: "Eléctrico · Planta",
+                    eficacia: "Fuego · Tierra · Roca"
+                }
+            ]
+        },
+
+        AZM: {
+            color: "#7ddde1",
+            region: "Kanto",
+            pokemon: [
+                {
+                    nombre: "Articuno",
+                    tipos: ["Hielo", "Volador"],
+                    debilidades: "Fuego · Eléctrico · Roca · Acero",
+                    eficacia: "Planta · Tierra · Volador · Dragón · Lucha · Bicho"
+                },
+                {
+                    nombre: "Zapdos",
+                    tipos: ["Eléctrico", "Volador"],
+                    debilidades: "Hielo · Roca",
+                    eficacia: "Agua · Volador · Planta · Lucha · Bicho"
+                },
+                {
+                    nombre: "Moltres",
+                    tipos: ["Fuego", "Volador"],
+                    debilidades: "Agua · Eléctrico · Roca",
+                    eficacia: "Planta · Hielo · Bicho · Acero · Lucha"
+                }
+            ]
+        },
+
+        Giratina: {
+            color: "#e97979",
+            region: "Sinnoh",
+            pokemon: [
+                {
+                    nombre: "Giratina",
+                    tipos: ["Fantasma", "Dragón"],
+                    debilidades: "Hielo · Fantasma · Dragón · Siniestro · Hada",
+                    eficacia: "Psíquico · Fantasma · Dragón"
+                }
+            ]
+        },
+
+        Rayquaza: {
+            color: "#83d67a",
+            region: "Hoenn",
+            pokemon: [
+                {
+                    nombre: "Rayquaza",
+                    tipos: ["Dragón", "Volador"],
+                    debilidades: "Hielo · Roca · Dragón · Hada",
+                    eficacia: "Dragón · Planta · Lucha · Bicho"
+                }
+            ]
+        }
+
+    };
+
+
+    // Color de cada etiqueta de tipo
+
+    var coloresTipos = {
+        "Normal": "#d8d4dc",
+        "Acero": "#b9c2ce",
+        "Dragón": "#b38aff",
+        "Agua": "#6ebcff",
+        "Psíquico": "#ff87bd",
+        "Fuego": "#ff7c62",
+        "Eléctrico": "#f4d85d",
+        "Hielo": "#8de6e6",
+        "Volador": "#a8b9ef",
+        "Fantasma": "#9b82c7"
+    };
+
+    var iconosTipos = {
+        "Normal": "media/elements/normal.svg",
+        "Acero": "media/elements/steel.svg",
+        "Dragón": "media/elements/dragon.svg",
+        "Agua": "media/elements/water.svg",
+        "Psíquico": "media/elements/psychic.svg",
+        "Fuego": "media/elements/fire.svg",
+        "Eléctrico": "media/elements/electric.svg",
+        "Hielo": "media/elements/ice.svg",
+        "Volador": "media/elements/flying.svg",
+        "Fantasma": "media/elements/ghost.svg",
+        "Siniestro": "media/elements/dark.svg"
+    };
+
+
+    var ventanaLeyenda = $(".modal-leyenda")[0];
+    var grupoActual;
+    var tarjetaActual;
+    var posicionPokemon = 0;
+    var botonDetalles;
+
+
+    // Rellenar la ventana con el Pokémon seleccionado
+
+    function mostrarPokemon() {
+
+        var pokemon = grupoActual.pokemon[posicionPokemon];
+
+        // Seleccionamos la imagen normal de la tarjeta original
+        var imagen = tarjetaActual
+            .find(".pokemon-imgs")
+            .eq(posicionPokemon)
+            .find("img:not(.shiny)");
+
+        $(".modal-imagen").attr({
+            src: imagen.attr("src"),
+            alt: pokemon.nombre
+        });
+
+        $("#modal-nombre").text(pokemon.nombre);
+        $(".modal-region").text(grupoActual.region);
+        $(".modal-debilidades").text(pokemon.debilidades);
+        $(".modal-eficacia").text(pokemon.eficacia);
+
+        $(".modal-contador").text(
+            (posicionPokemon + 1) + " / " + grupoActual.pokemon.length
+        );
+
+        // No hacen falta flechas en las tarjetas individuales
+        $(".modal-navegacion").prop(
+            "hidden",
+            grupoActual.pokemon.length === 1
+        );
+
+        // Creamos las etiquetas de los tipos
+        $(".modal-tipos").empty();
+
+        $.each(pokemon.tipos, function (indice, tipo) {
+
+            var etiqueta = $("<span>")
+                .addClass("modal-tipo")
+                .css("color", coloresTipos[tipo]);
+            
+            $("<span>")
+            .addClass("modal-tipo-icono")
+            .attr("aria-hidden", "true")
+            .css({
+                "-webkit-mask-image": 'url("' + iconosTipos[tipo] + '")',
+                "mask-image": 'url("' + iconosTipos[tipo] + '")'
+            })
+            .appendTo(etiqueta);
+            
+            $("<span>")
+                .text(tipo)
+                .appendTo(etiqueta);
+            
+            etiqueta.appendTo(".modal-tipos");
+
+        });
+
+    }
+
+
+    // Abrir al pulsar Ver detalles
+
+    $(".detalles-button").on("click", function () {
+
+        botonDetalles = this;
+        tarjetaActual = $(this).closest("[data-card]");
+
+        var nombreGrupo = tarjetaActual.attr("data-card");
+        grupoActual = gruposLeyendas[nombreGrupo];
+
+        if (!grupoActual) {
+            return;
+        }
+
+        posicionPokemon = 0;
+
+        var articulo = tarjetaActual.closest(".lista-leyendas-card");
+
+        // Reutilizamos el texto que ya hay junto a la tarjeta
+        $(".modal-etiqueta").text(
+            articulo.find("[class$='-pretitulo']").text().trim()
+        );
+
+        $(".modal-descripcion").text(
+            articulo.find("[class$='-descripcion']").text().trim()
+        );
+
+        $(".modal-leyenda").css("--modal-color", grupoActual.color);
+
+        mostrarPokemon();
+
+        $("body").addClass("modal-abierto");
+        ventanaLeyenda.showModal();
+        ventanaLeyenda.scrollTop = 0;
+
+    });
+
+
+    // Pasar al siguiente Pokémon del grupo
+
+    $(".modal-siguiente").on("click", function () {
+
+        posicionPokemon++;
+
+        if (posicionPokemon >= grupoActual.pokemon.length) {
+            posicionPokemon = 0;
+        }
+
+        mostrarPokemon();
+
+    });
+
+
+    // Volver al Pokémon anterior del grupo
+
+    $(".modal-anterior").on("click", function () {
+
+        posicionPokemon--;
+
+        if (posicionPokemon < 0) {
+            posicionPokemon = grupoActual.pokemon.length - 1;
+        }
+
+        mostrarPokemon();
+
+    });
+
+
+    // Cerrar con el botón
+
+    $(".modal-cerrar").on("click", function () {
+        ventanaLeyenda.close();
+    });
+
+
+    // Cerrar al pulsar en el fondo, fuera de la ventana
+
+    $(".modal-leyenda").on("click", function (evento) {
+
+        if (evento.target !== ventanaLeyenda) {
+            return;
+        }
+
+        var limites = ventanaLeyenda.getBoundingClientRect();
+
+        if (
+            evento.clientX < limites.left ||
+            evento.clientX > limites.right ||
+            evento.clientY < limites.top ||
+            evento.clientY > limites.bottom
+        ) {
+            ventanaLeyenda.close();
+        }
+
+    });
+
+
+    // Se ejecuta también cuando se cierra con Escape
+
+    $(ventanaLeyenda).on("close", function () {
+
+        $("body").removeClass("modal-abierto");
+
+        if (botonDetalles) {
+            botonDetalles.focus();
+        }
+
+    });
 });

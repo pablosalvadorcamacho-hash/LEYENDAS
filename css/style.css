@@ -166,6 +166,12 @@ header {
     }
 }
 
+@media (prefers-reduced-motion: reduce) {
+    .home-portada .titulo img {
+        animation: none;
+    }
+}
+
 .home-portada .pill-button {
     display: inline-flex;
     align-items: center;
@@ -1549,6 +1555,249 @@ section[id] {
     border-radius: 4px;
 }
 
+
+/* ===== MODAL DE LEYENDAS ===== */
+
+body.modal-abierto {
+    overflow: hidden;
+}
+
+.modal-leyenda {
+    --modal-color: #b58aff;
+
+    width: 92%;
+    max-width: 1050px;
+    max-height: 90vh;
+    max-height: 90dvh;
+    margin: auto;
+    padding: 0;
+
+    overflow: auto;
+    overscroll-behavior: contain;
+
+    background: #10131c;
+    color: var(--text-main);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    border-radius: 22px;
+
+    font-family: inherit;
+}
+
+.modal-leyenda::backdrop {
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(6px);
+}
+
+.modal-leyenda[open] {
+    animation: abrir-modal 0.25s ease-out;
+}
+
+@keyframes abrir-modal {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.modal-contenido {
+    display: grid;
+    grid-template-columns: 45% 55%;
+}
+
+.modal-cerrar,
+.modal-navegacion button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+    padding: 0;
+    flex-shrink: 0;
+
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 50%;
+    background: #0a0c12;
+    color: var(--text-main);
+
+    font-size: 1rem;
+    cursor: pointer;
+
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    z-index: 2;
+}
+
+.modal-cerrar:hover,
+.modal-navegacion button:hover {
+    color: var(--modal-color);
+    border-color: var(--modal-color);
+}
+
+.modal-leyenda button:focus-visible {
+    outline: 2px solid var(--modal-color);
+    outline-offset: 4px;
+}
+
+/* Imagen y flechas */
+
+.modal-visual {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+
+    min-width: 0;
+    padding: 4rem 2rem 2rem;
+    background: #090b11;
+}
+
+.modal-imagen {
+    display: block;
+    width: 100%;
+    height: 350px;
+    object-fit: contain;
+    filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.5));
+}
+
+.modal-navegacion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 220px;
+}
+
+.modal-navegacion[hidden] {
+    display: none;
+}
+
+.modal-contador {
+    color: var(--text-light);
+    font-size: 0.85rem;
+}
+
+/* Información */
+
+.modal-info {
+    min-width: 0;
+    padding: 4.5rem 2.5rem 2.5rem;
+}
+
+.modal-info #modal-nombre {
+    width: 100%;
+    text-align: left;
+}
+
+.modal-etiqueta {
+    margin: 0 0 1rem;
+    color: var(--modal-color);
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.16em;
+    line-height: 1.5;
+    text-transform: uppercase;
+}
+
+.modal-info h2 {
+    margin: 0 0 1.75rem;
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+}
+
+.modal-descripcion {
+    margin: 0 0 1.5rem;
+    color: var(--text-light);
+    font-size: 1rem;
+    line-height: 1.75;
+    text-align: left;
+}
+
+/* Etiquetas de tipos */
+
+.modal-tipos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.modal-tipo {
+    padding: 0.5rem 0.85rem;
+    border: 1px solid currentColor;
+    border-radius: 30px;
+    font-size: 0.75rem;
+    font-weight: 600;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.modal-tipo-icono {
+    display: block;
+    width: 24px;
+    height: 24px;
+    flex-shrink: 0;
+
+    background-color: currentColor;
+
+    -webkit-mask-size: contain;
+    mask-size: contain;
+
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+
+    -webkit-mask-position: center;
+    mask-position: center;
+}
+
+/* Datos */
+
+.modal-datos {
+    margin: 0;
+}
+
+.modal-datos > div {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+
+    padding: 0.9rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.modal-datos dt {
+    flex: 0 0 38%;
+    color: var(--text-light);
+    font-size: 0.7rem;
+    line-height: 1.6;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.modal-datos dd {
+    margin: 0;
+    color: var(--text-main);
+    font-size: 0.8rem;
+    line-height: 1.6;
+    text-align: right;
+}
+
 /* =====PANTALLA DE CARGA (POKEBALL)===== */
 
 .loader__track {
@@ -1817,7 +2066,34 @@ section[id] {
         flex-direction: column;
         text-align: center;
     }
+
+    .modal-contenido {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-visual {
+        padding: 3.5rem 1.5rem 1.5rem;
+    }
+
+    .modal-imagen {
+        height: 220px;
+    }
+
+    .modal-info {
+        padding: 2rem 1.5rem;
+    }
+
+    .modal-etiqueta {
+        font-size: 0.85rem;
+    }
 }
+
+@media (prefers-reduced-motion: reduce) {
+    .modal-leyenda[open] {
+        animation: none;
+    }
+}
+
 
 #archivo .archivo-volver {
     border: 2px solid rgba(255, 255, 255, 0.25);

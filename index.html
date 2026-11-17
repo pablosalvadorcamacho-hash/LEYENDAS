@@ -77,10 +77,11 @@
 
             <div class="titulo" data-aos="fade-right">
                 <img src="media/img/leyendaslogo.png" alt="Leyendas Pokémon">
+                
                 <p class="hero__intro">
-                Esta web reúne a los legendarios con los que crecimos: los de las primeras generaciones,
-                las series y las películas que más recordamos.
+                    <img class="portada-pokemon" src="media/img/leyendas-pixel-art.png" alt="" aria-hidden="true" width="4806" height="333">
                 </p>
+                
                 <a class="pill-button" href="#origen">Comenzar el viaje <span>
                     <i class="fa-solid fa-arrow-down" aria-hidden="true"></i>
                 </span></a>
@@ -354,6 +355,7 @@
 
         </section>
 
+
         <!-- CARTAS -->
 
         <section class="cartas" id="cartas">
@@ -621,6 +623,71 @@
         </div>
 
     </footer>
+
+
+    <!-- VENTANA DE DETALLES -->
+    <dialog class="modal-leyenda" aria-labelledby="modal-nombre">
+    
+        <button class="modal-cerrar" type="button"
+            aria-label="Cerrar detalles" autofocus>
+            <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+    
+        <div class="modal-contenido">
+        
+            <div class="modal-visual">
+            
+                <img class="modal-imagen" src="" alt="">
+            
+                <div class="modal-navegacion">
+                    <button class="modal-anterior" type="button"
+                        aria-label="Pokémon anterior">
+                        <i class="fa-solid fa-arrow-left"aria-hidden="true"></i>
+                    </button>
+                
+                    <span class="modal-contador"></span>
+                
+                    <button class="modal-siguiente" type="button"
+                        aria-label="Pokémon siguiente">
+                        <i class="fa-solid fa-arrow-right"aria-hidden="true"></i>
+                    </button>
+                </div>
+            
+            </div>
+        
+            <div class="modal-info" aria-live="polite">
+            
+                <p class="modal-etiqueta"></p>
+                <h2 id="modal-nombre"></h2>
+            
+                <p class="modal-descripcion"></p>
+            
+                <div class="modal-tipos"></div>
+            
+                <dl class="modal-datos">
+                
+                    <div>
+                        <dt>Región</dt>
+                        <dd class="modal-region"></dd>
+                    </div>
+                
+                    <div>
+                        <dt>Débil ante</dt>
+                        <dd class="modal-debilidades"></dd>
+                    </div>
+                
+                    <div>
+                        <dt>Sus tipos son eficaces contra</dt>
+                        <dd class="modal-eficacia"></dd>
+                    </div>
+                
+                </dl>
+            
+            </div>
+        
+        </div>
+    
+    </dialog>
 
     <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
