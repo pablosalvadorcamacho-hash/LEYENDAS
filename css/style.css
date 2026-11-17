@@ -905,7 +905,23 @@ section[id] {
 
 .cartas-ventana {
     overflow: hidden;
-    padding: 2rem 0;
+
+    /* Máscara de degradado hecho con ayuda de la IA (el mask-image) */
+    -webkit-mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 12%,
+        black 88%,
+        transparent 100%
+    );
+
+    mask-image: linear-gradient(
+        to right,
+        transparent 0%,
+        black 12%,
+        black 88%,
+        transparent 100%
+    );
 }
 
 .cartas-pista {
@@ -1356,9 +1372,9 @@ section[id] {
 /* CONTENIDO DEL FOOTER */
 
 .footer-principal {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
-    justify-content: space-between;
     gap: 2rem;
 }
 
@@ -1366,6 +1382,7 @@ section[id] {
     display: inline-flex;
     align-items: center;
     gap: 0.65rem;
+    justify-self: start;
 
     color: var(--text-main);
     text-decoration: none;
@@ -1397,6 +1414,7 @@ section[id] {
     font-size: 0.6rem;
     letter-spacing: 0.12em;
     text-decoration: none;
+    justify-self: end;
 
     transition: color 0.3s ease;
 }
@@ -1500,11 +1518,12 @@ section[id] {
     }
 
     .footer-principal {
-        flex-wrap: wrap;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 
     .footer-frase {
-        order: 3;
+        grid-column: 1 / -1;
+        grid-row: 2;
         width: 100%;
     }
 }
@@ -1618,7 +1637,7 @@ section[id] {
         height: 175px;
     }
     
-    ome-footer {
+    .home-footer {
         padding: 2.5rem 6% 1.5rem;
     }
 
