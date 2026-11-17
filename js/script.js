@@ -60,3 +60,4 @@ $(document).ready(function () {
         once: false,
         offset: 80
     });
+}
