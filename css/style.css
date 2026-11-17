@@ -3,15 +3,15 @@
     --bg-darker: #01040b;
     --bg-card: #111520;
     --bg-glass: rgba(17, 21, 32, 0.78);
+
+    --brillo-gold: #f5c542;
     
     --text-main: #f3f5f9;
-    --text-muted: #949eb1;
+    --text-light: #949eb1;
     
-    --accent-gold: #f5c542;
-    --accent-violet: #7c4dff;
-    --accent-rose: #ff4d8d;
     
-    --font-sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-main: "Segoe UI", Roboto, main-serif;
+    --font-title: "Geist Pixel", sans-serif;
     --max-width: 80%;
 
     --border-subtle: rgba(255, 255, 255, 0.08);
@@ -30,10 +30,19 @@ html {
 body {
     background-color: var(--bg-dark);
     color: var(--text-main);
-    font-family: var(--font-sans);
+    font-family: var(--font-main);
     line-height: 1.6;
     overflow-x: hidden;
 }
+
+h2 {
+    font-family: var(--font-title);
+    font-size: 3rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-align: center;
+}
+
 
 /* =====HEADER Y NAVBAR===== */
 
@@ -66,19 +75,22 @@ header {
     font-size: 0.85rem;
     font-weight: 700;
     letter-spacing: 0.08em;
-    color: var(--text-muted);
+    color: var(--text-light);
     text-decoration: none;
 }
 
 
 .home-nav .menu a:hover {
-    color: var(--accent-gold);
+    color: var(--brillo-gold);
 }
 
 
 /* =====PORTADA===== */
 
 .home-portada {
+    position: relative;
+    min-height: 90vh;
+    overflow: hidden;
     display: flex;
     background: var(--bg-darker);
     flex-direction: column;
@@ -86,10 +98,26 @@ header {
     justify-content: center;
     text-align: center;
     padding: 2rem;
-    font-family: var(--font-sans);
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
+    font-family: var(--font-main);
+}
+
+.fondo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    filter: brightness(0.35);
+}
+
+.home-portada::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at center, transparent 20%, var(--bg-dark) 100%);
+    z-index: 1;
+    pointer-events: none;
 }
 
 .home-portada::before {
@@ -144,6 +172,10 @@ header {
     gap: 3.5rem;
 }
 
+.origen-contenido h2 {
+    text-align: center;
+}
+
 .origen-texto {
     font-size: 1.25rem;
     font-weight: 500;
@@ -152,7 +184,7 @@ header {
     color: var(--text-main, #f3f5f9);
     max-width: 860px;
     padding-left: 1.5rem;
-    border-left: 2px solid var(--accent-gold, #f5c542);
+    border-left: 2px solid var(--brillo-gold, #f5c542);
 }
 
 
@@ -194,7 +226,7 @@ header {
     font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: 0.2em;
-    color: var(--accent-gold, #f5c542);
+    color: var(--brillo-gold, #f5c542);
     padding-bottom: 1rem;
     margin-bottom: 0.25rem;
 }
@@ -210,7 +242,7 @@ header {
 .origen-tarjetas article p {
     font-size: 0.95rem;
     line-height: 1.65;
-    color: var(--text-muted, #949eb1);
+    color: var(--text-light, #949eb1);
 }
 
 
@@ -228,13 +260,6 @@ header {
     display: flex;
     flex-direction: column;
     gap: 5.5rem;
-}
-
-.lista-leyendas > h2 {
-    font-size: 2.2rem;
-    font-weight: 800;
-    letter-spacing: -0.02em;
-    color: var(--text-main);
 }
 
 .lista-leyendas-card {
@@ -352,7 +377,7 @@ header {
 }
 
 .card-pd:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     box-shadow: 
         0 32px 70px -12px #c9b72c59,
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -367,7 +392,7 @@ header {
 }
 
 .card-mm:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     box-shadow: 
         0 32px 70px -12px #c9b72c59,
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -382,7 +407,7 @@ header {
 }
 
 .card-a:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     box-shadow: 
         0 32px 70px -12px #c9b72c59,
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -397,7 +422,7 @@ header {
 }
 
 .card-rz:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     box-shadow: 
         0 32px 70px -12px #c9b72c59,
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -412,7 +437,7 @@ header {
 }
 
 .card-res:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     box-shadow: 
         0 32px 70px -12px #c9b72c59,
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -427,7 +452,7 @@ header {
 }
 
 .card-azm:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     box-shadow: 
         0 32px 70px -12px #c9b72c59,
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -442,7 +467,7 @@ header {
 }
 
 .card-g:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     box-shadow: 
         0 32px 70px -12px #c9b72c59,
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -457,7 +482,7 @@ header {
 }
 
 .card-r:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     box-shadow: 
         0 32px 70px -12px #c9b72c59,
         inset 0 1px 0 rgba(255, 255, 255, 0.3);
@@ -517,7 +542,7 @@ header {
     font-size: 0.75rem;
     font-weight: 400;
     letter-spacing: 0.2em;
-    color: var(--text-muted);
+    color: var(--text-light);
 }
 
 .card-pd-img,
@@ -716,7 +741,7 @@ header {
     background: var(--bg-glass);
     border: 1px solid rgba(255, 255, 255, 0.18);
     color: var(--text-main);
-    font-family: var(--font-sans);
+    font-family: var(--font-main);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.05em;
@@ -726,8 +751,8 @@ header {
 }
 
 .detalles-button:hover {
-    background: var(--accent-gold);
-    border-color: var(--accent-gold);
+    background: var(--brillo-gold);
+    border-color: var(--brillo-gold);
     color: var(--bg-darker);
     transform: translateY(-2px);
 }
@@ -758,7 +783,7 @@ header {
     font-weight: 700;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--accent-gold);
+    color: var(--brillo-gold);
 }
 
 .card-pd-info h3,
@@ -769,8 +794,8 @@ header {
 .card-azm-info h3,
 .card-g-info h3,
 .card-r-info h3 {
-    font-size: clamp(2rem, 3.4vw, 2.85rem);
-    font-weight: 800;
+    font-size: 2.5rem;
+    font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--text-main);
@@ -786,7 +811,7 @@ header {
 .card-r-descripcion {
     font-size: 1.1rem;
     line-height: 1.7;
-    color: var(--text-muted);
+    color: var(--text-light);
     max-width: 80%;
 }
 
@@ -823,7 +848,7 @@ header {
     padding: 0;
 
     background: transparent;
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--brillo-gold);
     border-radius: 8px;
     color: var(--text-main);
     cursor: pointer;
@@ -856,7 +881,7 @@ header {
 }
 
 .menu-btn:focus-visible {
-    outline: 2px solid var(--accent-gold);
+    outline: 2px solid var(--brillo-gold);
     outline-offset: 4px;
 }
 
@@ -882,7 +907,7 @@ section[id] {
 
 .cartas-etiqueta {
     margin-bottom: 1rem;
-    color: var(--accent-gold);
+    color: var(--brillo-gold);
     font-size: 0.75rem;
     font-weight: 700;
     letter-spacing: 0.15em;
@@ -890,12 +915,11 @@ section[id] {
 
 .cartas-intro h2 {
     margin-bottom: 1.25rem;
-    font-size: 2.5rem;
     line-height: 1.2;
 }
 
 .cartas-intro > p:last-child {
-    color: var(--text-muted);
+    color: var(--text-light);
 }
 
 .cartas-carrusel {
@@ -936,7 +960,7 @@ section[id] {
 
 .carta-item figcaption {
     margin-top: 1rem;
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 0.85rem;
     text-align: center;
 }
@@ -949,7 +973,7 @@ section[id] {
 }
 
 .carta-activa figcaption {
-    color: var(--accent-gold);
+    color: var(--brillo-gold);
 }
 
 /* Evita animaciones al colocar inicialmente las cartas */
@@ -962,10 +986,10 @@ section[id] {
     display: block;
     margin: 1rem auto 0;
     padding: 0.7rem 1.25rem;
-    border: 1px solid var(--accent-gold);
+    border: 1px solid var(--brillo-gold);
     border-radius: 30px;
     background: transparent;
-    color: var(--accent-gold);
+    color: var(--brillo-gold);
     font: inherit;
     font-size: 0.85rem;
     cursor: pointer;
@@ -974,7 +998,7 @@ section[id] {
 
 .cartas-pausa:hover,
 .cartas-pausa[aria-pressed="true"] {
-    background: var(--accent-gold);
+    background: var(--brillo-gold);
     color: var(--bg-dark);
 }
 
@@ -990,7 +1014,7 @@ section[id] {
     position: relative;
     isolation: isolate;
     overflow: hidden;
-    padding: 8rem 5%;
+    padding: 8rem 5% 3rem;
     background: var(--bg-dark);
     text-align: center;
 }
@@ -1019,35 +1043,19 @@ section[id] {
     pointer-events: none;
 }
 
-.archivo-contenido {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
 .archivo-etiqueta {
     margin-bottom: 2rem;
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.22em;
-}
-
-.archivo h2 {
-    margin-bottom: 2rem;
-    color: var(--text-main);
-    font-size: 4rem;
-    font-weight: 300;
-    line-height: 1.08;
-    letter-spacing: -0.06em;
 }
 
 .archivo-texto,
 .archivo-nota {
     max-width: 480px;
     margin: 0 auto;
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 0.9rem;
     line-height: 1.8;
 }
@@ -1090,12 +1098,12 @@ section[id] {
 }
 
 .archivo-volver:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     background: rgba(245, 197, 66, 0.06);
 }
 
 .archivo-volver:focus-visible {
-    outline: 2px solid var(--accent-gold);
+    outline: 2px solid var(--brillo-gold);
     outline-offset: 5px;
 }
 
@@ -1111,16 +1119,8 @@ section[id] {
     filter: grayscale(1);
     pointer-events: none;
     z-index: 0;
-}/* =====ARCHIVO===== */
-
-.archivo {
-    position: relative;
-    isolation: isolate;
-    overflow: hidden;
-    padding: 8rem 5% 3rem;
-    background: var(--bg-dark);
-    text-align: center;
 }
+
 
 /* LÍNEA SEPARADORA */
 
@@ -1173,7 +1173,7 @@ section[id] {
 
 .archivo-etiqueta {
     margin-bottom: 2rem;
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 0.65rem;
     font-weight: 600;
     letter-spacing: 0.22em;
@@ -1181,18 +1181,14 @@ section[id] {
 
 .archivo h2 {
     margin-bottom: 2rem;
-    color: var(--text-main);
-    font-size: 4rem;
-    font-weight: 300;
     line-height: 1.08;
-    letter-spacing: -0.06em;
 }
 
 .archivo-texto,
 .archivo-nota {
     max-width: 480px;
     margin: 0 auto;
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 0.9rem;
     line-height: 1.8;
 }
@@ -1242,7 +1238,7 @@ section[id] {
 }
 
 .archivo-volver:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     background: rgba(245, 197, 66, 0.06);
 }
 
@@ -1384,7 +1380,7 @@ section[id] {
 }
 
 .footer-frase {
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 0.6rem;
     letter-spacing: 0.12em;
     text-align: center;
@@ -1393,7 +1389,7 @@ section[id] {
 .footer-arriba {
     flex-shrink: 0;
 
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 0.6rem;
     letter-spacing: 0.12em;
     text-decoration: none;
@@ -1402,7 +1398,7 @@ section[id] {
 }
 
 .footer-arriba:hover {
-    color: var(--accent-gold);
+    color: var(--brillo-gold);
 }
 
 
@@ -1424,7 +1420,7 @@ section[id] {
     width: 44px;
     height: 44px;
 
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 1.3rem;
     text-decoration: none;
 
@@ -1434,7 +1430,7 @@ section[id] {
 }
 
 .footer-redes a:hover {
-    color: var(--accent-gold);
+    color: var(--brillo-gold);
     transform: translateY(-3px);
 }
 
@@ -1448,7 +1444,7 @@ section[id] {
 
     margin-top: 1.5rem;
 
-    color: var(--text-muted);
+    color: var(--text-light);
     font-size: 0.7rem;
 }
 
@@ -1456,7 +1452,7 @@ section[id] {
 /* FOCO CON TECLADO */
 
 .home-footer a:focus-visible {
-    outline: 2px solid var(--accent-gold);
+    outline: 2px solid var(--brillo-gold);
     outline-offset: 4px;
     border-radius: 4px;
 }
@@ -1489,10 +1485,6 @@ section[id] {
 
     .archivo {
         padding: 6rem 5% 2.5rem;
-    }
-
-    .archivo h2 {
-        font-size: 3.2rem;
     }
 
     .archivo-pikachu {
@@ -1573,10 +1565,6 @@ section[id] {
         padding: 3rem 0;
     }
 
-    .cartas-intro h2 {
-        font-size: 1.8rem;
-    }
-
     .carta-item {
         flex-basis: 240px;
         padding: 0 12px;
@@ -1588,10 +1576,6 @@ section[id] {
 
     .archivo-etiqueta {
         font-size: 0.6rem;
-    }
-
-    .archivo h2 {
-        font-size: 2.3rem;
     }
 
     .archivo-texto {
