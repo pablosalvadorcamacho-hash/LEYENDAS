@@ -226,6 +226,82 @@ $(document).ready(function () {
     }, 50);
 
 
+    // ===== POKÉMON SHINY =====
+
+    var tarjetasPokemon = $(".leyendas [data-card]");
+    
+    // En tablet, móvil o dispositivos sin hover usamos toque
+    function usarToquePokemon() {
+        return window.matchMedia(
+            "(max-width: 1024px), (hover: none)"
+        ).matches;
+    }
+
+
+    // ORDENADOR: mostrar shiny al entrar en la tarjeta
+
+    tarjetasPokemon.on("mouseenter", function () {
+
+        if (!usarToquePokemon()) {
+            $(this).addClass("mostrar-shiny");
+        }
+
+    });
+
+
+    // ORDENADOR: volver al normal al salir
+
+    tarjetasPokemon.on("mouseleave", function () {
+
+        if (!usarToquePokemon()) {
+            $(this).removeClass("mostrar-shiny");
+        }
+
+    });
+
+
+    // TABLET Y MÓVIL: tocar el Pokémon para alternar
+
+    tarjetasPokemon.find(".pokemon-imgs").on("click", function () {
+
+        if (usarToquePokemon()) {
+            $(this)
+                .closest("[data-card]")
+                .toggleClass("mostrar-shiny");
+        }
+
+    });
+
+
+    // TECLADO: alternar con Enter o espacio
+    // Las tarjetas ya tienen tabindex="0"
+
+    tarjetasPokemon.on("keydown", function (evento) {
+
+        // No interferir con botones dentro de la tarjeta
+        if (evento.target !== this) {
+            return;
+        }
+
+        if (evento.key === "Enter" || evento.key === " ") {
+            evento.preventDefault();
+            $(this).toggleClass("mostrar-shiny");
+        }
+
+    });
+
+
+    // Limpiar el estado al cambiar entre escritorio y móvil
+
+    window.matchMedia(
+        "(max-width: 1024px), (hover: none)"
+    ).addEventListener("change", function () {
+
+        tarjetasPokemon.removeClass("mostrar-shiny");
+
+    });
+
+
     // ANIMACIONES AL HACER SCROLL
 
     AOS.init({
@@ -233,6 +309,7 @@ $(document).ready(function () {
         once: false,
         offset: 80
     });
+
 
     // DARKRAI SECRETO EN EL FOOTER
 

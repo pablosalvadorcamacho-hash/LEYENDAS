@@ -664,7 +664,7 @@ header {
 .card-g.mostrar-shiny .pokemon-imgs img.shiny,
 .card-r.mostrar-shiny .pokemon-imgs img.shiny {
     opacity: 1;
-    filter: drop-shadow(0 0 22px rgba(245, 197, 66, 0.5));
+    filter: drop-shadow(0 18px 26px rgba(0, 0, 0, 0.75));
 }
 
 
@@ -784,6 +784,29 @@ header {
     max-width: 80%;
 }
 
+
+/* Reducir el espacio de las imágenes individuales */
+
+.card-g-img,
+.card-r-img {
+    min-height: 0;
+    padding: 1rem 0;
+}
+
+.card-g-img .pokemon-imgs,
+.card-r-img .pokemon-imgs {
+    max-width: 290px;
+}
+
+
+/* Mantener el botón completo dentro de la tarjeta */
+
+.card-g .detalles-button,
+.card-r .detalles-button {
+    flex-shrink: 0;
+    margin-top: 1rem;
+}
+
 /* =====MENÚ===== */
 
 .menu-btn {
@@ -808,7 +831,6 @@ section[id] {
 
 .cartas {
     padding: 6rem 0;
-    border-top: 1px solid var(--border-subtle);
 }
 
 .cartas-intro {
@@ -1060,6 +1082,19 @@ section[id] {
     text-align: center;
 }
 
+/* LÍNEA SEPARADORA */
+
+.archivo::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: var(--border-subtle);
+    pointer-events: none;
+}
+
 
 /* DESTELLO DORADO CIRCULAR */
 
@@ -1202,7 +1237,20 @@ section[id] {
 
 .home-footer {
     padding: 0 5% 1.5rem;
+    padding-top: 1.5rem;
     background: var(--bg-darker);
+    position: relative;
+}
+
+.home-footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 10%;
+    width: 80%;
+    height: 1px;
+    background: var(--border-subtle);
+    pointer-events: none;
 }
 
 
