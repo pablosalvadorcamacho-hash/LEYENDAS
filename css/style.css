@@ -54,6 +54,7 @@ header {
     align-items: center;
     justify-content: space-between;
     padding: 1rem 5%;
+    padding-left: 2%;
     background: var(--bg-glass);
     backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--border-subtle);
@@ -1363,7 +1364,7 @@ section[id] {
 
 .archivo-pikachu {
     position: absolute;
-    right: -20px;
+    right: 3px;
     bottom: -25px;
 
     width: 230px;
