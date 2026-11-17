@@ -594,13 +594,13 @@ section[id] {
 
 .home-footer {
     padding: 0 5% 1.5rem;
-    background: var(--bg-dark);
+    background: var(--bg-darker);
 }
 
 
 /* ESPACIO RESERVADO PARA DARKRAI */
 
-.footer-secreto {
+.archivo-secreto {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -610,7 +610,7 @@ section[id] {
     pointer-events: none;
 }
 
-.footer-darkrai {
+.archivo-darkrai {
     position: relative;
     width: 210px;
     height: 210px;
@@ -623,7 +623,7 @@ section[id] {
         transform 0.4s ease;
 }
 
-.footer-darkrai img {
+.archivo-darkrai img {
     position: absolute;
     inset: 0;
 
@@ -639,19 +639,19 @@ section[id] {
 
 /* DARKRAI NORMAL O SHINY */
 
-.footer-darkrai .darkrai-shiny {
+.archivo-darkrai .darkrai-shiny {
     display: none;
 }
 
-.footer-darkrai.es-shiny .darkrai-normal {
+.archivo-darkrai.es-shiny .darkrai-normal {
     display: none;
 }
 
-.footer-darkrai.es-shiny .darkrai-shiny {
+.archivo-darkrai.es-shiny .darkrai-shiny {
     display: block;
 }
 
-.footer-darkrai.mostrar-darkrai {
+.archivo-darkrai.mostrar-darkrai {
     opacity: 1;
     transform: translateY(0);
 }
@@ -864,11 +864,11 @@ section[id] {
         padding: 0 6% 1.5rem;
     }
 
-    .footer-secreto {
+    .archivo-secreto {
         height: 200px;
     }
 
-    .footer-darkrai {
+    .archivo-darkrai {
         width: 175px;
         height: 175px;
     }

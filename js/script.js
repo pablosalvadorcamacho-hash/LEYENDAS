@@ -238,7 +238,7 @@ $(document).ready(function () {
 
     $(".archivo-volver").on("mouseenter focus", function () {
 
-        var darkrai = $(".footer-darkrai");
+        var darkrai = $(".archivo-darkrai");
 
         if (!darkrai.hasClass("mostrar-darkrai")) {
             var esShiny = Math.random() < 0.5;
@@ -252,7 +252,7 @@ $(document).ready(function () {
     $(".archivo-volver").on("mouseleave blur", function () {
 
         if (!$(this).is(":hover") && !$(this).is(":focus")) {
-            $(".footer-darkrai").removeClass("mostrar-darkrai");
+            $(".archivo-darkrai").removeClass("mostrar-darkrai");
         }
 
     });
