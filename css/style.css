@@ -1145,28 +1145,6 @@ section[id] {
     pointer-events: none;
 }
 
-.archivo-etiqueta {
-    margin-bottom: 2rem;
-    color: var(--text-light);
-    font-size: 0.65rem;
-    font-weight: 600;
-    letter-spacing: 0.22em;
-}
-
-.archivo-texto,
-.archivo-nota {
-    max-width: 480px;
-    margin: 0 auto;
-    color: var(--text-light);
-    font-size: 0.9rem;
-    line-height: 1.8;
-}
-
-.archivo-nota {
-    margin-top: 1.5rem;
-    font-size: 0.8rem;
-}
-
 /* Volver al inicio */
 
 .archivo-volver {
@@ -1282,16 +1260,26 @@ section[id] {
 }
 
 .archivo h2 {
+    margin-bottom: 1rem;
+}
+
+.archivo h3 {
+    color: var(--brillo-gold);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.archivo h4 {
     margin-bottom: 2rem;
-    line-height: 1.08;
+    font-weight: 400;
+    font-size: 1.2rem;
 }
 
 .archivo-texto,
 .archivo-nota {
-    max-width: 480px;
     margin: 0 auto;
     color: var(--text-light);
-    font-size: 0.9rem;
+    font-size: 1.1rem;
     line-height: 1.8;
 }
 
