@@ -36,7 +36,7 @@ $(document).ready(function () {
             $(".home-nav .menu").hasClass("menu-abierto")) {
 
             cerrarMenu();
-            $(".menu-boton").focus();
+            $(".menu-btn").trigger("focus");
         }
 
     });
@@ -46,7 +46,7 @@ $(document).ready(function () {
 
     $(window).on("resize", function () {
 
-        if ($(window).width() > 700) {
+        if ($(window).width() > 500) {
             cerrarMenu();
         }
 
