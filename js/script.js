@@ -359,20 +359,15 @@ $(document).ready(function () {
 
     });
 
-    $(document).ready(function () {
+    // ===== PANTALLA DE CARGA =====
 
-        // 1. A los 3 segundos la Pokéball colapsa y explota
-        setTimeout(function () {
-            $(".loader-texto").fadeOut(200); // El texto desaparece al estallar
-            $(".pokeball--loader").addClass("escapa");
-        }, 3000);
+    setTimeout(function () {
+        $(".pokeball--loader").addClass("escapa");
+    }, 3000);
     
-        // 2. A los 3.5 segundos se disipa el fogonazo y aparece la web
-        setTimeout(function () {
-            $(".loader__track").fadeOut(400);
-        }, 3500);
-
-    });
+    setTimeout(function () {
+        $(".loader__track").fadeOut(400);
+    }, 3500);
     
 
 
@@ -727,7 +722,7 @@ $(document).ready(function () {
     });
 
 
-    // Se ejecuta también cuando se cierra con Escape
+    // Se ejecuta también cuando se cierra con Esc
 
     $(ventanaLeyenda).on("close", function () {
 

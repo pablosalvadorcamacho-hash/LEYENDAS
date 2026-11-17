@@ -10,7 +10,7 @@
     --text-light: #949eb1;
     
     
-    --font-main: "Segoe UI", Roboto, main-serif;
+    --font-main: "Segoe UI", Roboto, sans-serif;
     --font-title: "Geist Pixel", sans-serif;
     --max-width: 80%;
 
@@ -217,12 +217,12 @@ header {
 }
 
 .home-portada .pill-button:hover {
-    border-color: var(--accent-gold);
+    border-color: var(--brillo-gold);
     background: rgba(245, 197, 66, 0.06);
 }
 
 .home-portada .pill-button:focus-visible {
-    outline: 2px solid var(--accent-gold);
+    outline: 2px solid var(--brillo-gold);
     outline-offset: 5px;
 }
    
@@ -297,13 +297,12 @@ header {
     display: inline-flex;
     align-items: center;
     justify-content: space-between;
+
     font-size: 1.25rem;
     font-weight: 700;
     letter-spacing: 0.2em;
-    color: var(--accent-gold, #f5c542);
-    padding-bottom: 0.25rem;
-    margin-bottom: 0rem;
-    color: var(--brillo-gold, #f5c542);
+    color: var(--brillo-gold);
+
     padding-bottom: 1rem;
     margin-bottom: 0.25rem;
 }
@@ -412,7 +411,6 @@ header {
 .card-g,
 .card-r {
     position: relative;
-    min-height: 430px;
     min-height: 450px; 
     aspect-ratio: 2 / 2.5;
     padding: 1.65rem 1.85rem;
@@ -1133,29 +1131,6 @@ section[id] {
     text-align: center;
 }
 
-/* Destello dorado difuminado */
-
-.archivo::before {
-    content: "";
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    width: 85%;
-    max-width: 650px;
-    height: 230px;
-
-    background: radial-gradient(
-        ellipse,
-        rgba(245, 197, 66, 0.65) 0%,
-        rgba(225, 165, 35, 0.3) 35%,
-        rgba(245, 197, 66, 0) 72%
-    );
-
-    filter: blur(35px);
-    transform: translate(-50%, -50%) rotate(-12deg);
-    z-index: -1;
-    pointer-events: none;
-}
 
 /* Volver al inicio */
 
@@ -1199,20 +1174,6 @@ section[id] {
     outline-offset: 5px;
 }
 
-/* Arceus decorativo */
-
-.archivo-arceus {
-    position: absolute;
-    right: -35px;
-    bottom: -45px;
-    width: 250px;
-    height: auto;
-    opacity: 0.13;
-    filter: grayscale(1);
-    pointer-events: none;
-    z-index: 0;
-}
-
 
 /* LÍNEA SEPARADORA */
 
@@ -1239,6 +1200,8 @@ section[id] {
     width: min(460px, 85vw);
     aspect-ratio: 1;
     border-radius: 50%;
+    max-width: 650px;
+    height: 230px;
 
     background: radial-gradient(
         circle,
@@ -1300,57 +1263,8 @@ section[id] {
     font-size: 0.8rem;
 }
 
-
-/* BOTÓN VOLVER */
-
-.archivo-volver {
-    display: inline-flex;
-    align-items: center;
-    gap: 1.5rem;
-
-    margin-top: 2.5rem;
-    padding: 0.7rem 0.8rem 0.7rem 1.3rem;
-
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 30px;
-
-    color: var(--text-main);
-    font-size: 0.65rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-decoration: none;
-
-    transition:
-        border-color 0.3s ease,
-        background-color 0.3s ease;
-}
-
-.archivo-volver span {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    width: 28px;
-    height: 28px;
-    border-radius: 50%;
-
-    background: var(--text-main);
-    color: var(--bg-dark);
-    font-size: 1rem;
-}
-
-.archivo-volver:hover {
-    border-color: var(--brillo-gold);
-    background: rgba(245, 197, 66, 0.06);
-}
-
 .archivo {
     padding-bottom: 1rem;
-}
-
-.archivo-secreto {
-    height: 215px;
-    margin-top: 0.5rem;
 }
 
 
@@ -1398,8 +1312,9 @@ section[id] {
     display: flex;
     justify-content: center;
     align-items: center;
-
-    height: 240px;
+    
+    margin-top: 0.5rem;
+    height: 220px;
     margin-bottom: 2rem;
     pointer-events: none;
 }
@@ -1869,8 +1784,8 @@ body.modal-abierto {
     0% {
         transform: scale(1);
         background: #fff;
-        border-color: var(--accent-gold);
-        box-shadow: 0 0 20px 10px var(--accent-gold);
+        border-color: var(--brillo-gold);
+        box-shadow: 0 0 20px 10px var(--brillo-gold);
         opacity: 1;
     }
     40% {
@@ -1883,18 +1798,11 @@ body.modal-abierto {
         transform: scale(25); /* Estalla cubriendo toda la pantalla de luz */
         background: #fff;
         border-color: #fff;
-        box-shadow: 0 0 150px 80px var(--accent-gold);
+        box-shadow: 0 0 150px 80px var(--brillo-gold);
         opacity: 0;
     }
 }
 
-.loader-texto {
-    font-size: 1rem;
-    font-weight: 700;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--accent-gold);
-}
 
 /* Animación de balanceo de la Pokéball */
 @keyframes capturar {
@@ -1925,6 +1833,139 @@ body.modal-abierto {
 
     .origen-tarjetas {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .leyendas {
+        width: 100%;
+        max-width: 100%;
+        padding: 4rem 6%;
+    }
+
+    .lista-leyendas {
+        gap: 4.5rem;
+    }
+
+    .leyendas .lista-leyendas-card {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    /* Tarjeta arriba */
+
+    .leyendas .lista-leyendas-card > [data-card] {
+        order: 0;
+        width: 100%;
+        max-width: 520px;
+        min-width: 0;
+        min-height: 0;
+        aspect-ratio: auto;
+        margin: 0 auto;
+        padding: 2rem;
+    }
+
+    /* Información debajo */
+
+    .leyendas .lista-leyendas-card > [class$="-info"] {
+        order: 1;
+        width: 100%;
+        max-width: 650px;
+        min-width: 0;
+        margin: 0 auto;
+    }
+
+    .leyendas [class$="-pretitulo"] {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .leyendas [class$="-info"] h3 {
+        font-size: 2.4rem;
+        line-height: 1.2;
+    }
+
+    .leyendas [class$="-descripcion"] {
+        max-width: 100%;
+        font-size: 1.2rem;
+        line-height: 1.75;
+    }
+
+    .leyendas [class$="-gen"] {
+        font-size: 0.9rem;
+    }
+
+    .leyendas [class$="-subtexto"] b {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+
+    .leyendas .detalles-button {
+        min-height: 48px;
+        padding: 0.75rem 1.25rem;
+        font-size: 1rem;
+    }
+
+    /* Ventana de detalles */
+
+    .modal-leyenda {
+        width: 90%;
+        max-width: 720px;
+    }
+
+    .modal-contenido {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .modal-visual {
+        padding: 3.5rem 2rem 1.5rem;
+        gap: 1rem;
+    }
+
+    .modal-imagen {
+        height: 280px;
+    }
+
+    .modal-info {
+        padding: 2rem;
+    }
+
+    .modal-etiqueta {
+        font-size: 1.05rem;
+    }
+
+    .modal-info #modal-nombre {
+        font-size: 3rem;
+        overflow-wrap: break-word;
+    }
+
+    .modal-descripcion {
+        font-size: 1.2rem;
+        line-height: 1.75;
+    }
+
+    .modal-tipo {
+        padding: 0.6rem 0.9rem;
+        font-size: 1rem;
+    }
+
+    .modal-tipo-icono {
+        width: 28px;
+        height: 28px;
+    }
+
+    .modal-datos dt {
+        font-size: 0.9rem;
+    }
+
+    .modal-datos dd,
+    .modal-contador {
+        font-size: 1rem;
+    }
+
+    .modal-cerrar,
+    .modal-navegacion button {
+        width: 48px;
+        height: 48px;
+        font-size: 1.2rem;
     }
 
     .cartas-intro {
@@ -2015,6 +2056,127 @@ body.modal-abierto {
         grid-template-columns: 1fr;
     }
 
+    .leyendas {
+        padding: 3rem 5%;
+    }
+
+    .lista-leyendas {
+        gap: 3.5rem;
+    }
+
+    .lista-leyendas > h2 {
+        font-size: 2.2rem;
+    }
+
+    .leyendas .lista-leyendas-card {
+        gap: 1.5rem;
+    }
+
+    .leyendas .lista-leyendas-card > [data-card] {
+        padding: 1.5rem;
+        border-radius: 22px;
+    }
+
+    .leyendas [class$="-pretitulo"] {
+        font-size: 1.1rem;
+        letter-spacing: 0.12em;
+    }
+
+    .leyendas [class$="-info"] h3 {
+        font-size: 2rem;
+        overflow-wrap: break-word;
+    }
+
+    .leyendas [class$="-descripcion"] {
+        font-size: 1.3rem;
+        line-height: 1.7;
+        text-align: left;
+        hyphens: none;
+    }
+
+    .leyendas [class$="-gen"] {
+        font-size: 1rem;
+        letter-spacing: 0.1em;
+    }
+
+    .leyendas [class$="-subtexto"] b {
+        font-size: 1.1rem;
+        letter-spacing: 0.08em;
+    }
+
+    .leyendas .detalles-button {
+        width: 100%;
+        margin-top: 1.5rem;
+        font-size: 1.1rem;
+        text-align: center;
+    }
+
+    /* Ventana de detalles */
+
+    .modal-leyenda {
+        width: 94%;
+        max-height: 94vh;
+        max-height: 94dvh;
+        border-radius: 18px;
+    }
+
+    .modal-visual {
+        padding: 3.5rem 1.25rem 1.25rem;
+    }
+
+    .modal-imagen {
+        height: 230px;
+    }
+
+    .modal-info {
+        padding: 1.5rem 1.25rem;
+    }
+
+    .modal-etiqueta {
+        font-size: 1.15rem;
+        letter-spacing: 0.1em;
+    }
+
+    .modal-info #modal-nombre {
+        font-size: 2.4rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .modal-descripcion {
+        font-size: 1.3rem;
+        line-height: 1.7;
+    }
+
+    .modal-tipo {
+        font-size: 1.1rem;
+    }
+
+    .modal-tipo-icono {
+        width: 30px;
+        height: 30px;
+    }
+
+    .modal-datos > div {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.4rem;
+        padding: 1rem 0;
+    }
+
+    .modal-datos dt {
+        flex: auto;
+        font-size: 1rem;
+    }
+
+    .modal-datos dd {
+        font-size: 1.15rem;
+        text-align: left;
+    }
+
+    .modal-contador {
+        font-size: 1.1rem;
+    }
+
     .cartas {
         padding: 3rem 0;
     }
@@ -2072,26 +2234,7 @@ body.modal-abierto {
         flex-direction: column;
         text-align: center;
     }
-
-    .modal-contenido {
-        grid-template-columns: 1fr;
-    }
-
-    .modal-visual {
-        padding: 3.5rem 1.5rem 1.5rem;
-    }
-
-    .modal-imagen {
-        height: 220px;
-    }
-
-    .modal-info {
-        padding: 2rem 1.5rem;
-    }
-
-    .modal-etiqueta {
-        font-size: 0.85rem;
-    }
+    
 }
 
 @media (prefers-reduced-motion: reduce) {
