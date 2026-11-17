@@ -233,5 +233,28 @@ $(document).ready(function () {
         once: false,
         offset: 80
     });
+
+    // DARKRAI SECRETO EN EL FOOTER
+
+    $(".archivo-volver").on("mouseenter focus", function () {
+
+        var darkrai = $(".footer-darkrai");
+
+        if (!darkrai.hasClass("mostrar-darkrai")) {
+            var esShiny = Math.random() < 0.5;
+
+            darkrai.toggleClass("es-shiny", esShiny);
+            darkrai.addClass("mostrar-darkrai");
+        }
+
+    });
+
+    $(".archivo-volver").on("mouseleave blur", function () {
+
+        if (!$(this).is(":hover") && !$(this).is(":focus")) {
+            $(".footer-darkrai").removeClass("mostrar-darkrai");
+        }
+
+    });
     
 });
