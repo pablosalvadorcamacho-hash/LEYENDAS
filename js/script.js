@@ -1,21 +1,34 @@
 $(document).ready(function () {
 
-    // MENÚ MOBILE
+    // ===== MENÚ MOBILE =====
 
     function cerrarMenu() {
-        $(".home-nav .menu").removeClass("menu-abierto");
-        $(".menu-btn").text("Menú");
-        $(".menu-btn").attr("aria-expanded", "false");
+    
+        $(".home-nav .menu").removeClass    ("menu-abierto");
+    
+        $(".menu-btn")
+            .attr("aria-expanded", "false")
+            .attr("aria-label", "Abrir menú");
+    
     }
+
+
+    // Abrir o cerrar
 
     $(".menu-btn").on("click", function () {
 
-        if ($(".home-nav .menu").hasClass("menu-abierto")) {
+        if ($(".home-nav .menu").hasClass   ("menu-abierto")) {
+
             cerrarMenu();
+
         } else {
-            $(".home-nav .menu").addClass("menu-abierto");
-            $(this).text("Cerrar");
-            $(this).attr("aria-expanded", "true");
+
+            $(".home-nav .menu").addClass   ("menu-abierto");
+
+            $(this)
+                .attr("aria-expanded", "true")
+                .attr("aria-label", "Cerrar menú");
+
         }
 
     });
@@ -28,13 +41,14 @@ $(document).ready(function () {
     });
 
 
-    //Cerrar con la tecla Esc
+    // Cerrar con Escape
 
     $(document).on("keydown", function (evento) {
 
-        if (evento.key === "Escape" &&
-            $(".home-nav .menu").hasClass("menu-abierto")) {
-
+        if (
+            evento.key === "Escape" &&
+            $(".home-nav .menu").hasClass   ("menu-abierto")
+        ) {
             cerrarMenu();
             $(".menu-btn").trigger("focus");
         }
@@ -42,7 +56,18 @@ $(document).ready(function () {
     });
 
 
-    // Restablecer el menú al pasar a Desktop
+    // Cerrar al pulsar fuera
+
+    $(document).on("click", function (evento) {
+
+        if (!$(evento.target).closest(".home-nav").length) {
+            cerrarMenu();
+        }
+
+    });
+
+
+    // Restablecer al pasar a escritorio
 
     $(window).on("resize", function () {
 
