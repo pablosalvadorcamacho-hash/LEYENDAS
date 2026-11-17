@@ -78,7 +78,7 @@ header {
 
 /* =====PORTADA===== */
 
-   .home-portada {
+.home-portada {
     display: flex;
     background: var(--bg-darker);
     flex-direction: column;
@@ -87,14 +87,40 @@ header {
     text-align: center;
     padding: 2rem;
     font-family: var(--font-sans);
-   }
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+}
 
-   .titulo img {
+.home-portada::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: min(460px, 85vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(245, 197, 66, 0.45) 0%,
+        rgba(245, 197, 66, 0.2) 35%,
+        transparent 70%
+    );
+
+    filter: blur(30px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+.titulo img {
     max-width: 100%;
     width: 55%;
     height: auto;
     margin-bottom: 1rem;
-   }
+}
 
 
 
@@ -777,6 +803,577 @@ section[id] {
     scroll-margin-top: 100px;
 }
 
+
+/* =====CARTAS===== */
+
+.cartas {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border-subtle);
+}
+
+.cartas-intro {
+    width: 80%;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    text-align: center;
+}
+
+.cartas-etiqueta {
+    margin-bottom: 1rem;
+    color: var(--accent-gold);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+}
+
+.cartas-intro h2 {
+    margin-bottom: 1.25rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
+}
+
+.cartas-intro > p:last-child {
+    color: var(--text-muted);
+}
+
+.cartas-carrusel {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.cartas-ventana {
+    overflow: hidden;
+    padding: 2rem 0;
+}
+
+.cartas-pista {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+/* Cada carta ocupa un espacio fijo dentro de la fila */
+
+.carta-item {
+    flex: 0 0 320px;
+    min-width: 0;
+    margin: 0;
+    padding: 0 18px;
+    opacity: 0.45;
+    transform: scale(0.82);
+    transition: transform 1.5s ease, opacity 1.5s ease;
+}
+
+.carta-item img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
+}
+
+.carta-item figcaption {
+    margin-top: 1rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    text-align: center;
+}
+
+/* La carta que llega al centro recupera su tamaño completo */
+
+.carta-item.carta-activa {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carta-activa figcaption {
+    color: var(--accent-gold);
+}
+
+/* Evita animaciones al colocar inicialmente las cartas */
+
+.cartas-pista.cartas-colocando .carta-item {
+    transition: none;
+}
+
+.cartas-pausa {
+    display: block;
+    margin: 1rem auto 0;
+    padding: 0.7rem 1.25rem;
+    border: 1px solid var(--accent-gold);
+    border-radius: 30px;
+    background: transparent;
+    color: var(--accent-gold);
+    font: inherit;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.cartas-pausa:hover,
+.cartas-pausa[aria-pressed="true"] {
+    background: var(--accent-gold);
+    color: var(--bg-dark);
+}
+
+.cartas-pausa:focus-visible {
+    outline: 2px solid var(--text-main);
+    outline-offset: 4px;
+}
+
+
+/* =====ARCHIVO===== */
+
+.archivo {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 8rem 5%;
+    background: var(--bg-dark);
+    text-align: center;
+}
+
+/* Destello dorado difuminado */
+
+.archivo::before {
+    content: "";
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 85%;
+    max-width: 650px;
+    height: 230px;
+
+    background: radial-gradient(
+        ellipse,
+        rgba(245, 197, 66, 0.65) 0%,
+        rgba(225, 165, 35, 0.3) 35%,
+        rgba(245, 197, 66, 0) 72%
+    );
+
+    filter: blur(35px);
+    transform: translate(-50%, -50%) rotate(-12deg);
+    z-index: -1;
+    pointer-events: none;
+}
+
+.archivo-contenido {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.archivo-etiqueta {
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+}
+
+.archivo h2 {
+    margin-bottom: 2rem;
+    color: var(--text-main);
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.06em;
+}
+
+.archivo-texto,
+.archivo-nota {
+    max-width: 480px;
+    margin: 0 auto;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.archivo-nota {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+}
+
+/* Volver al inicio */
+
+.archivo-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2.5rem;
+    padding: 0.7rem 0.8rem 0.7rem 1.3rem;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    color: var(--text-main);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.archivo-volver span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: var(--text-main);
+    color: var(--bg-dark);
+    font-size: 1rem;
+}
+
+.archivo-volver:hover {
+    border-color: var(--accent-gold);
+    background: rgba(245, 197, 66, 0.06);
+}
+
+.archivo-volver:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 5px;
+}
+
+/* Arceus decorativo */
+
+.archivo-arceus {
+    position: absolute;
+    right: -35px;
+    bottom: -45px;
+    width: 250px;
+    height: auto;
+    opacity: 0.13;
+    filter: grayscale(1);
+    pointer-events: none;
+    z-index: 0;
+}/* =====ARCHIVO===== */
+
+.archivo {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 8rem 5% 3rem;
+    background: var(--bg-dark);
+    text-align: center;
+}
+
+
+/* DESTELLO DORADO CIRCULAR */
+
+.archivo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: min(460px, 85vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(245, 197, 66, 0.45) 0%,
+        rgba(245, 197, 66, 0.2) 35%,
+        transparent 70%
+    );
+
+    filter: blur(30px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* CONTENIDO */
+
+.archivo-contenido {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.archivo-etiqueta {
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+}
+
+.archivo h2 {
+    margin-bottom: 2rem;
+    color: var(--text-main);
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.06em;
+}
+
+.archivo-texto,
+.archivo-nota {
+    max-width: 480px;
+    margin: 0 auto;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.archivo-nota {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+}
+
+
+/* BOTÓN VOLVER */
+
+.archivo-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    margin-top: 2.5rem;
+    padding: 0.7rem 0.8rem 0.7rem 1.3rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+
+    color: var(--text-main);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.archivo-volver span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+    background: var(--text-main);
+    color: var(--bg-dark);
+    font-size: 1rem;
+}
+
+.archivo-volver:hover {
+    border-color: var(--accent-gold);
+    background: rgba(245, 197, 66, 0.06);
+}
+
+.archivo {
+    padding-bottom: 1rem;
+}
+
+.archivo-secreto {
+    height: 215px;
+    margin-top: 0.5rem;
+}
+
+
+/* PIKACHU */
+
+.archivo-pikachu {
+    position: absolute;
+    right: -20px;
+    bottom: -25px;
+
+    width: 230px;
+    height: auto;
+
+    opacity: 0.13;
+    filter: grayscale(1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* =====FOOTER===== */
+
+.home-footer {
+    padding: 0 5% 1.5rem;
+    background: var(--bg-darker);
+}
+
+
+/* ESPACIO RESERVADO PARA DARKRAI */
+
+.archivo-secreto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 240px;
+    margin-bottom: 2rem;
+    pointer-events: none;
+}
+
+.archivo-darkrai {
+    position: relative;
+    width: 210px;
+    height: 210px;
+
+    opacity: 0;
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+.archivo-darkrai img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    filter: drop-shadow(
+        0 0 18px rgba(124, 77, 255, 0.3)
+    );
+}
+
+
+/* DARKRAI NORMAL O SHINY */
+
+.archivo-darkrai .darkrai-shiny {
+    display: none;
+}
+
+.archivo-darkrai.es-shiny .darkrai-normal {
+    display: none;
+}
+
+.archivo-darkrai.es-shiny .darkrai-shiny {
+    display: block;
+}
+
+.archivo-darkrai.mostrar-darkrai {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* CONTENIDO DEL FOOTER */
+
+.footer-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.footer-logo img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.footer-logo span {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.footer-frase {
+    color: var(--text-muted);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+}
+
+.footer-arriba {
+    flex-shrink: 0;
+
+    color: var(--text-muted);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.footer-arriba:hover {
+    color: var(--accent-gold);
+}
+
+
+
+.footer-redes {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+}
+
+.footer-redes a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    text-decoration: none;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.footer-redes a:hover {
+    color: var(--accent-gold);
+    transform: translateY(-3px);
+}
+
+
+/* CRÉDITOS */
+
+.footer-creditos {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    margin-top: 1.5rem;
+
+    color: var(--text-muted);
+    font-size: 0.7rem;
+}
+
+
+/* FOCO CON TECLADO */
+
+.home-footer a:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+
 /* =====TABLET===== */
 
 @media (max-width: 1024px) {
@@ -793,6 +1390,35 @@ section[id] {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .cartas-intro {
+        width: 90%;
+    }
+
+    .carta-item {
+        flex-basis: 280px;
+        padding: 0 15px;
+    }
+
+    .archivo {
+        padding: 6rem 5% 2.5rem;
+    }
+
+    .archivo h2 {
+        font-size: 3.2rem;
+    }
+
+    .archivo-pikachu {
+        width: 190px;
+    }
+
+    .footer-principal {
+        flex-wrap: wrap;
+    }
+
+    .footer-frase {
+        order: 3;
+        width: 100%;
+    }
 }
 
 
@@ -835,5 +1461,71 @@ section[id] {
 
     .origen-tarjetas {
         grid-template-columns: 1fr;
+    }
+
+    .cartas {
+        padding: 3rem 0;
+    }
+
+    .cartas-intro h2 {
+        font-size: 1.8rem;
+    }
+
+    .carta-item {
+        flex-basis: 240px;
+        padding: 0 12px;
+    }
+
+    .archivo {
+        padding: 4rem 6% 3rem;
+    }
+
+    .archivo-etiqueta {
+        font-size: 0.6rem;
+    }
+
+    .archivo h2 {
+        font-size: 2.3rem;
+    }
+
+    .archivo-texto {
+        font-size: 0.85rem;
+    }
+
+    .archivo-nota {
+        font-size: 0.75rem;
+    }
+
+    .archivo-pikachu {
+        width: 150px;
+        right: -15px;
+        bottom: -20px;
+    }
+
+    
+    .archivo-secreto {
+        height: 185px;
+    }
+    
+    .archivo-darkrai {
+        width: 175px;
+        height: 175px;
+    }
+    
+    ome-footer {
+        padding: 2.5rem 6% 1.5rem;
+    }
+
+    .footer-principal {
+        gap: 1.5rem;
+    }
+
+    .footer-redes {
+        gap: 0.4rem;
+    }
+
+    .footer-creditos {
+        flex-direction: column;
+        text-align: center;
     }
 }
