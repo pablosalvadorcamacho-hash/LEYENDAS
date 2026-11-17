@@ -295,7 +295,7 @@ $(document).ready(function () {
                 .toggleClass("mostrar-shiny");
         }
 
-    });
+        });
 
 
     // TECLADO: alternar con Enter o espacio
@@ -353,9 +353,24 @@ $(document).ready(function () {
 
     $(".archivo-volver").on("mouseleave blur", function () {
 
-        if (!$(this).is(":hover") && !$(this).is(":focus")) {
-            $(".archivo-darkrai").removeClass("mostrar-darkrai");
-        }
+            if (!$(this).is(":hover") && !$(this).is(":focus")) {
+                $(".archivo-darkrai").removeClass("mostrar-darkrai");
+            }
+
+    });
+
+    $(document).ready(function () {
+
+        // 1. A los 3 segundos la Pokéball colapsa y explota
+        setTimeout(function () {
+            $(".loader-texto").fadeOut(200); // El texto desaparece al estallar
+            $(".pokeball--loader").addClass("escapa");
+        }, 3000);
+    
+        // 2. A los 3.5 segundos se disipa el fogonazo y aparece la web
+        setTimeout(function () {
+            $(".loader__track").fadeOut(400);
+        }, 3500);
 
     });
     

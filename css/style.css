@@ -166,12 +166,6 @@ header {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .home-portada .titulo img {
-        animation: none;
-    }
-}
-
 .home-portada .pill-button {
     display: inline-flex;
     align-items: center;
@@ -1567,6 +1561,112 @@ section[id] {
     border-radius: 4px;
 }
 
+/* =====PANTALLA DE CARGA (POKEBALL)===== */
+
+.loader__track {
+    position: fixed;
+    inset: 0;
+    background-color: var(--bg-darker);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1.8rem;
+}
+
+/* Dibujo de la Pokéball */
+.pokeball--loader {
+    position: relative;
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    border: 4px solid #000;
+    background: linear-gradient(
+        to bottom,
+        #e53935 0%,
+        #e53935 46%,
+        #000 46%,
+        #000 54%,
+        #f3f5f9 54%,
+        #f3f5f9 100%
+    );
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8);
+    transform-origin: bottom center;
+    animation: capturar 1s ease-in-out 2; /* Se mueve 2 veces (3 segundos) */
+}
+
+/* Botón central de la Pokéball */
+.pokeball--loader::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: #f3f5f9;
+    border: 4px solid #000;
+    animation: parpadeo-captura 1s ease-in-out 3;
+}
+
+/* Explosión final al abrirse la Pokéball */
+.pokeball--loader.escapa {
+    animation: explosion-pokeball 0.6s ease-out forwards;
+}
+
+.pokeball--loader.escapa::before {
+    background-color: #fff;
+    border-color: #fff;
+    box-shadow: 0 0 50px 30px #fff;
+}
+
+@keyframes explosion-pokeball {
+    0% {
+        transform: scale(1);
+        background: #fff;
+        border-color: var(--accent-gold);
+        box-shadow: 0 0 20px 10px var(--accent-gold);
+        opacity: 1;
+    }
+    40% {
+        transform: scale(0.85); /* Se comprime un instante antes de estallar */
+        background: #fff;
+        box-shadow: 0 0 60px 30px #ff5252;
+        opacity: 1;
+    }
+    100% {
+        transform: scale(25); /* Estalla cubriendo toda la pantalla de luz */
+        background: #fff;
+        border-color: #fff;
+        box-shadow: 0 0 150px 80px var(--accent-gold);
+        opacity: 0;
+    }
+}
+
+.loader-texto {
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-gold);
+}
+
+/* Animación de balanceo de la Pokéball */
+@keyframes capturar {
+    0%, 100% { transform: translateX(0) rotate(0deg); }
+    20% { transform: translateX(-14px) rotate(-22deg); }
+    40% { transform: translateX(14px) rotate(22deg); }
+    60% { transform: translateX(-8px) rotate(-10deg); }
+    80% { transform: translateX(0) rotate(0deg); }
+}
+
+/* Luz roja del centro mientras intenta capturar */
+@keyframes parpadeo-captura {
+    0%, 100% { background-color: #f3f5f9; box-shadow: none; }
+    50% { background-color: #ff5252; box-shadow: 0 0 12px #ff5252; }
+}
 
 /* =====TABLET===== */
 
