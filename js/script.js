@@ -398,14 +398,14 @@ $(document).ready(function () {
                 {
                     nombre: "Dialga",
                     tipos: ["Acero", "Dragón"],
-                    debilidades: "Lucha · Tierra",
-                    eficacia: "Hielo · Roca · Hada · Dragón"
+                    debilidades: "Lucha - Tierra",
+                    eficacia: "Hielo - Roca - Hada - Dragón"
                 },
                 {
                     nombre: "Palkia",
                     tipos: ["Agua", "Dragón"],
-                    debilidades: "Dragón · Hada",
-                    eficacia: "Fuego · Tierra · Roca · Dragón"
+                    debilidades: "Dragón - Hada",
+                    eficacia: "Fuego - Tierra - Roca - Dragón"
                 }
             ]
         },
@@ -417,14 +417,14 @@ $(document).ready(function () {
                 {
                     nombre: "Mew",
                     tipos: ["Psíquico"],
-                    debilidades: "Bicho · Fantasma · Siniestro",
-                    eficacia: "Lucha · Veneno"
+                    debilidades: "Bicho - Fantasma - Siniestro",
+                    eficacia: "Lucha - Veneno"
                 },
                 {
                     nombre: "Mewtwo",
                     tipos: ["Psíquico"],
-                    debilidades: "Bicho · Fantasma · Siniestro",
-                    eficacia: "Lucha · Veneno"
+                    debilidades: "Bicho - Fantasma - Siniestro",
+                    eficacia: "Lucha - Veneno"
                 }
             ]
         },
@@ -436,14 +436,14 @@ $(document).ready(function () {
                 {
                     nombre: "Reshiram",
                     tipos: ["Dragón", "Fuego"],
-                    debilidades: "Tierra · Roca · Dragón",
-                    eficacia: "Dragón · Planta · Hielo · Bicho · Acero"
+                    debilidades: "Tierra - Roca - Dragón",
+                    eficacia: "Dragón - Planta - Hielo - Bicho - Acero"
                 },
                 {
                     nombre: "Zekrom",
                     tipos: ["Dragón", "Eléctrico"],
-                    debilidades: "Tierra · Hielo · Dragón · Hada",
-                    eficacia: "Dragón · Agua · Volador"
+                    debilidades: "Tierra - Hielo - Dragón - Hada",
+                    eficacia: "Dragón - Agua - Volador"
                 }
             ]
         },
@@ -456,19 +456,19 @@ $(document).ready(function () {
                     nombre: "Raikou",
                     tipos: ["Eléctrico"],
                     debilidades: "Tierra",
-                    eficacia: "Agua · Volador"
+                    eficacia: "Agua - Volador"
                 },
                 {
                     nombre: "Entei",
                     tipos: ["Fuego"],
-                    debilidades: "Agua · Tierra · Roca",
-                    eficacia: "Planta · Hielo · Bicho · Acero"
+                    debilidades: "Agua - Tierra - Roca",
+                    eficacia: "Planta - Hielo - Bicho - Acero"
                 },
                 {
                     nombre: "Suicune",
                     tipos: ["Agua"],
-                    debilidades: "Eléctrico · Planta",
-                    eficacia: "Fuego · Tierra · Roca"
+                    debilidades: "Eléctrico - Planta",
+                    eficacia: "Fuego - Tierra - Roca"
                 }
             ]
         },
@@ -480,20 +480,20 @@ $(document).ready(function () {
                 {
                     nombre: "Articuno",
                     tipos: ["Hielo", "Volador"],
-                    debilidades: "Fuego · Eléctrico · Roca · Acero",
-                    eficacia: "Planta · Tierra · Volador · Dragón · Lucha · Bicho"
+                    debilidades: "Fuego - Eléctrico - Roca - Acero",
+                    eficacia: "Planta - Tierra - Volador - Dragón - Lucha - Bicho"
                 },
                 {
                     nombre: "Zapdos",
                     tipos: ["Eléctrico", "Volador"],
-                    debilidades: "Hielo · Roca",
-                    eficacia: "Agua · Volador · Planta · Lucha · Bicho"
+                    debilidades: "Hielo - Roca",
+                    eficacia: "Agua - Volador - Planta - Lucha - Bicho"
                 },
                 {
                     nombre: "Moltres",
                     tipos: ["Fuego", "Volador"],
-                    debilidades: "Agua · Eléctrico · Roca",
-                    eficacia: "Planta · Hielo · Bicho · Acero · Lucha"
+                    debilidades: "Agua - Eléctrico - Roca",
+                    eficacia: "Planta - Hielo - Bicho - Acero - Lucha"
                 }
             ]
         },
@@ -505,8 +505,8 @@ $(document).ready(function () {
                 {
                     nombre: "Giratina",
                     tipos: ["Fantasma", "Dragón"],
-                    debilidades: "Hielo · Fantasma · Dragón · Siniestro · Hada",
-                    eficacia: "Psíquico · Fantasma · Dragón"
+                    debilidades: "Hielo - Fantasma - Dragón - Siniestro - Hada",
+                    eficacia: "Psíquico - Fantasma - Dragón"
                 }
             ]
         },
@@ -518,8 +518,8 @@ $(document).ready(function () {
                 {
                     nombre: "Rayquaza",
                     tipos: ["Dragón", "Volador"],
-                    debilidades: "Hielo · Roca · Dragón · Hada",
-                    eficacia: "Dragón · Planta · Lucha · Bicho"
+                    debilidades: "Hielo - Roca - Dragón - Hada",
+                    eficacia: "Dragón - Planta - Lucha - Bicho"
                 }
             ]
         }

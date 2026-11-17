@@ -1996,6 +1996,19 @@ body.modal-abierto {
     }
 }
 
+@media (min-width: 501px) and (max-width: 1024px) {
+
+    .leyendas .lista-leyendas-card > [class$="-info"] {
+        align-items: center;
+        text-align: center;
+    }
+
+    .leyendas [class$="-descripcion"] {
+        text-align: center;
+    }
+
+}
+
 
 /* =====MOBILE===== */
 
