@@ -166,10 +166,16 @@ header {
     }
 }
 
-@media (prefers-reduced-motion: reduce) {
-    .home-portada .titulo img {
-        animation: none;
-    }
+.home-portada .portada-pokemon {
+    display: block;
+    position: relative;
+    z-index: 1;
+    width: 96%;
+    max-width: 1750px;
+    height: auto;
+    margin: 2rem auto;
+    transform: translateY(-60px);
+    image-rendering: pixelated;
 }
 
 .home-portada .pill-button {
