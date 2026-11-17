@@ -572,6 +572,15 @@ section[id] {
     background: rgba(245, 197, 66, 0.06);
 }
 
+.archivo {
+    padding-bottom: 1rem;
+}
+
+.archivo-secreto {
+    height: 215px;
+    margin-top: 0.5rem;
+}
+
 
 /* PIKACHU */
 
@@ -722,6 +731,47 @@ section[id] {
 }
 
 
+/* REDES SOCIALES */
+
+.footer-redes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+}
+
+.footer-redes a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 44px;
+    height: 44px;
+
+    color: var(--text-muted);
+    font-size: 1.3rem;
+    text-decoration: none;
+
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-redes a:hover {
+    color: var(--accent-gold);
+    transform: translateY(-3px);
+}
+
+.footer-redes a:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 3px;
+    border-radius: 6px;
+}
+
+.footer-creditos {
+    margin-top: 1.5rem;
+}
+
+
 /* FOCO CON TECLADO */
 
 .archivo-volver:focus-visible,
@@ -861,11 +911,12 @@ section[id] {
     }
 
     .home-footer {
-        padding: 0 6% 1.5rem;
+        padding: 2.5rem 6% 1.5rem;
+        background: var(--bg-darker);
     }
 
     .archivo-secreto {
-        height: 200px;
+        height: 185px;
     }
 
     .archivo-darkrai {
