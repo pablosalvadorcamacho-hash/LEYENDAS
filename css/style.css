@@ -758,15 +758,24 @@ section[id] {
     }
 
     .archivo {
-        padding: 6rem 5%;
+        padding: 6rem 5% 2.5rem;
     }
 
     .archivo h2 {
         font-size: 3.2rem;
     }
 
-    .archivo-arceus {
-        width: 200px;
+    .archivo-pikachu {
+        width: 190px;
+    }
+
+    .footer-principal {
+        flex-wrap: wrap;
+    }
+
+    .footer-frase {
+        order: 3;
+        width: 100%;
     }
 }
 
@@ -826,7 +835,7 @@ section[id] {
     }
 
     .archivo {
-        padding: 4rem 6% 7rem;
+        padding: 4rem 6% 3rem;
     }
 
     .archivo-etiqueta {
@@ -845,9 +854,31 @@ section[id] {
         font-size: 0.75rem;
     }
 
-    .archivo-arceus {
+    .archivo-pikachu {
         width: 150px;
-        right: -25px;
-        bottom: -30px;
+        right: -15px;
+        bottom: -20px;
+    }
+
+    .home-footer {
+        padding: 0 6% 1.5rem;
+    }
+
+    .footer-secreto {
+        height: 200px;
+    }
+
+    .footer-darkrai {
+        width: 175px;
+        height: 175px;
+    }
+
+    .footer-principal {
+        gap: 1.5rem;
+    }
+
+    .footer-creditos {
+        flex-direction: column;
+        text-align: center;
     }
 }
