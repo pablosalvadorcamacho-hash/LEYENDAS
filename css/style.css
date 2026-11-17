@@ -341,15 +341,18 @@ section[id] {
     position: absolute;
     top: 55%;
     left: 50%;
-    width: 60%;
-    max-width: 500px;
-    height: 120px;
+    width: 85%;
+    max-width: 650px;
+    height: 230px;
+
     background: radial-gradient(
         ellipse,
-        rgba(245, 197, 66, 0.3),
-        transparent 70%
+        rgba(245, 197, 66, 0.65) 0%,
+        rgba(225, 165, 35, 0.3) 35%,
+        rgba(245, 197, 66, 0) 72%
     );
-    filter: blur(40px);
+
+    filter: blur(35px);
     transform: translate(-50%, -50%) rotate(-12deg);
     z-index: -1;
     pointer-events: none;
@@ -447,6 +450,285 @@ section[id] {
     filter: grayscale(1);
     pointer-events: none;
     z-index: 0;
+}/* =====ARCHIVO===== */
+
+.archivo {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    padding: 8rem 5% 3rem;
+    background: var(--bg-dark);
+    text-align: center;
+}
+
+
+/* DESTELLO DORADO CIRCULAR */
+
+.archivo::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+
+    width: min(460px, 85vw);
+    aspect-ratio: 1;
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(245, 197, 66, 0.45) 0%,
+        rgba(245, 197, 66, 0.2) 35%,
+        transparent 70%
+    );
+
+    filter: blur(30px);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: -1;
+}
+
+
+/* CONTENIDO */
+
+.archivo-contenido {
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.archivo-etiqueta {
+    margin-bottom: 2rem;
+    color: var(--text-muted);
+    font-size: 0.65rem;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+}
+
+.archivo h2 {
+    margin-bottom: 2rem;
+    color: var(--text-main);
+    font-size: 4rem;
+    font-weight: 300;
+    line-height: 1.08;
+    letter-spacing: -0.06em;
+}
+
+.archivo-texto,
+.archivo-nota {
+    max-width: 480px;
+    margin: 0 auto;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    line-height: 1.8;
+}
+
+.archivo-nota {
+    margin-top: 1.5rem;
+    font-size: 0.8rem;
+}
+
+
+/* BOTÓN VOLVER */
+
+.archivo-volver {
+    display: inline-flex;
+    align-items: center;
+    gap: 1.5rem;
+
+    margin-top: 2.5rem;
+    padding: 0.7rem 0.8rem 0.7rem 1.3rem;
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+
+    color: var(--text-main);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+
+    transition:
+        border-color 0.3s ease,
+        background-color 0.3s ease;
+}
+
+.archivo-volver span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+
+    background: var(--text-main);
+    color: var(--bg-dark);
+    font-size: 1rem;
+}
+
+.archivo-volver:hover {
+    border-color: var(--accent-gold);
+    background: rgba(245, 197, 66, 0.06);
+}
+
+
+/* PIKACHU */
+
+.archivo-pikachu {
+    position: absolute;
+    right: -20px;
+    bottom: -25px;
+
+    width: 230px;
+    height: auto;
+
+    opacity: 0.13;
+    filter: grayscale(1);
+    pointer-events: none;
+    z-index: 0;
+}
+
+
+/* =====FOOTER===== */
+
+.home-footer {
+    padding: 0 5% 1.5rem;
+    background: var(--bg-dark);
+}
+
+
+/* ESPACIO RESERVADO PARA DARKRAI */
+
+.footer-secreto {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 240px;
+    margin-bottom: 2rem;
+    pointer-events: none;
+}
+
+.footer-darkrai {
+    position: relative;
+    width: 210px;
+    height: 210px;
+
+    opacity: 0;
+    transform: translateY(18px);
+
+    transition:
+        opacity 0.4s ease,
+        transform 0.4s ease;
+}
+
+.footer-darkrai img {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    filter: drop-shadow(
+        0 0 18px rgba(124, 77, 255, 0.3)
+    );
+}
+
+
+/* DARKRAI NORMAL O SHINY */
+
+.footer-darkrai .darkrai-shiny {
+    display: none;
+}
+
+.footer-darkrai.es-shiny .darkrai-normal {
+    display: none;
+}
+
+.footer-darkrai.es-shiny .darkrai-shiny {
+    display: block;
+}
+
+.footer-darkrai.mostrar-darkrai {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* CONTENIDO DEL FOOTER */
+
+.footer-principal {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.footer-logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.65rem;
+
+    color: var(--text-main);
+    text-decoration: none;
+}
+
+.footer-logo img {
+    width: 26px;
+    height: 26px;
+    object-fit: contain;
+}
+
+.footer-logo span {
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.18em;
+}
+
+.footer-frase {
+    color: var(--text-muted);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-align: center;
+}
+
+.footer-arriba {
+    flex-shrink: 0;
+
+    color: var(--text-muted);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-decoration: none;
+
+    transition: color 0.3s ease;
+}
+
+.footer-arriba:hover {
+    color: var(--accent-gold);
+}
+
+.footer-creditos {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+
+    margin-top: 2rem;
+    padding-top: 1rem;
+
+    color: var(--text-muted);
+    font-size: 0.7rem;
+}
+
+
+/* FOCO CON TECLADO */
+
+.archivo-volver:focus-visible,
+.footer-logo:focus-visible,
+.footer-arriba:focus-visible {
+    outline: 2px solid var(--accent-gold);
+    outline-offset: 5px;
 }
 
 
